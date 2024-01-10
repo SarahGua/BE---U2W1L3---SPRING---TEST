@@ -34,4 +34,8 @@ public class ClassForTest {
                 throw new IllegalArgumentException("Unsupported operation: " + operation);
         }
     }
+
+    static public int multiplyNum(int a, int b, int expectedResult){
+        return a * b;
+    }
 }

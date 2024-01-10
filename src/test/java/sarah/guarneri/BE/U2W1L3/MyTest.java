@@ -1,6 +1,9 @@
 package sarah.guarneri.BE.U2W1L3;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -36,5 +39,12 @@ public class MyTest {
                 () -> assertEquals(3, result2),
                 () -> assertEquals(2, result3)
         );
+    }
+
+    @ParameterizedTest
+    @CsvSource({"1, 1, 2", "2, 3, 5", "5, 5, 10"})
+    public void testParam(int a, int b, int expectedResult){
+        int result = ClassForTest.sum(a, b);
+        assertEquals(expectedResult, result);
     }
 }
